@@ -1,0 +1,36 @@
+﻿  imguiWindow.cpp
+C:\dev\Scar\Scar\include\Scar\imguiWindow\imguiWindow.h(2,24): warning C4091: 'typedef ' : ignoré à gauche de 'SDL_Event' quand aucune variable n'est déclarée
+C:\dev\Scar\Scar\include\Scar\managers\LogManager.h(8,42): warning C4251: 'Scar::Managers::LogManager::s_CoreLogger' : class 'std::shared_ptr<spdlog::logger>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Managers::LogManager'
+C:\dev\Scar\vendor\spdlog\include\spdlog\details\registry.h(34): message : voir la déclaration de 'std::shared_ptr<spdlog::logger>'
+C:\dev\Scar\Scar\include\Scar\managers\LogManager.h(9,42): warning C4251: 'Scar::Managers::LogManager::s_ClientLogger' : class 'std::shared_ptr<spdlog::logger>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Managers::LogManager'
+C:\dev\Scar\vendor\spdlog\include\spdlog\details\registry.h(34): message : voir la déclaration de 'std::shared_ptr<spdlog::logger>'
+C:\dev\Scar\Scar\include\Scar\graphics\RenderCommands.h(18,51): warning C4275: interface non dll class 'Scar::graphics::RenderCommands' utilisée comme base d'une interface dll class 'Scar::graphics::RenderMesh'
+C:\dev\Scar\Scar\include\Scar\graphics\RenderCommands.h(12): message : voir la déclaration de 'Scar::graphics::RenderCommands'
+C:\dev\Scar\Scar\include\Scar\graphics\RenderCommands.h(18): message : voir la déclaration de 'Scar::graphics::RenderMesh'
+C:\dev\Scar\Scar\include\Scar\managers\RenderManager.h(10,41): warning C4251: 'Scar::Managers::RenderManager::m_rendercommands' : class 'std::queue<Scar::graphics::RenderCommands *,std::deque<Scar::graphics::RenderCommands *,std::allocator<Scar::graphics::RenderCommands *>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Managers::RenderManager'
+C:\dev\Scar\Scar\include\Scar\managers\RenderManager.h(10): message : voir la déclaration de 'std::queue<Scar::graphics::RenderCommands *,std::deque<Scar::graphics::RenderCommands *,std::allocator<Scar::graphics::RenderCommands *>>>'
+C:\dev\Scar\Scar\include\Scar\core\Engine.h(13,10): warning C4251: 'Scar::Engine::m_window' : class 'Scar::Window' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Engine'
+C:\dev\Scar\Scar\include\Scar\window\Window.h(8): message : voir la déclaration de 'Scar::Window'
+  Window.cpp
+C:\dev\Scar\Scar\include\Scar\imguiWindow\ImguiWindow.h(2,24): warning C4091: 'typedef ' : ignoré à gauche de 'SDL_Event' quand aucune variable n'est déclarée
+C:\dev\Scar\Scar\include\Scar\managers\LogManager.h(8,42): warning C4251: 'Scar::Managers::LogManager::s_CoreLogger' : class 'std::shared_ptr<spdlog::logger>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Managers::LogManager'
+C:\dev\Scar\vendor\spdlog\include\spdlog\details\registry.h(34): message : voir la déclaration de 'std::shared_ptr<spdlog::logger>'
+C:\dev\Scar\Scar\include\Scar\managers\LogManager.h(9,42): warning C4251: 'Scar::Managers::LogManager::s_ClientLogger' : class 'std::shared_ptr<spdlog::logger>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Managers::LogManager'
+C:\dev\Scar\vendor\spdlog\include\spdlog\details\registry.h(34): message : voir la déclaration de 'std::shared_ptr<spdlog::logger>'
+C:\dev\Scar\Scar\include\Scar\graphics\RenderCommands.h(18,51): warning C4275: interface non dll class 'Scar::graphics::RenderCommands' utilisée comme base d'une interface dll class 'Scar::graphics::RenderMesh'
+C:\dev\Scar\Scar\include\Scar\graphics\RenderCommands.h(12): message : voir la déclaration de 'Scar::graphics::RenderCommands'
+C:\dev\Scar\Scar\include\Scar\graphics\RenderCommands.h(18): message : voir la déclaration de 'Scar::graphics::RenderMesh'
+C:\dev\Scar\Scar\include\Scar\managers\RenderManager.h(10,41): warning C4251: 'Scar::Managers::RenderManager::m_rendercommands' : class 'std::queue<Scar::graphics::RenderCommands *,std::deque<Scar::graphics::RenderCommands *,std::allocator<Scar::graphics::RenderCommands *>>>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Managers::RenderManager'
+C:\dev\Scar\Scar\include\Scar\managers\RenderManager.h(10): message : voir la déclaration de 'std::queue<Scar::graphics::RenderCommands *,std::deque<Scar::graphics::RenderCommands *,std::allocator<Scar::graphics::RenderCommands *>>>'
+C:\dev\Scar\Scar\include\Scar\core\Engine.h(13,10): warning C4251: 'Scar::Engine::m_window' : class 'Scar::Window' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Engine'
+C:\dev\Scar\Scar\include\Scar\window\Window.h(8): message : voir la déclaration de 'Scar::Window'
+C:\dev\Scar\Scar\include\Scar\events\MouseEvent.h(11,40): warning C4251: 'Scar::Event::MouseEvent::Buttons' : class 'std::array<bool,6>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Event::MouseEvent'
+C:\dev\Scar\Scar\include\Scar\events\MouseEvent.h(11): message : voir la déclaration de 'std::array<bool,6>'
+C:\dev\Scar\Scar\include\Scar\events\MouseEvent.h(13,40): warning C4251: 'Scar::Event::MouseEvent::ButtonsDown' : class 'std::array<bool,6>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Event::MouseEvent'
+C:\dev\Scar\Scar\include\Scar\events\MouseEvent.h(11): message : voir la déclaration de 'std::array<bool,6>'
+C:\dev\Scar\Scar\include\Scar\events\KeyEvent.h(11,37): warning C4251: 'Scar::Event::KeyEvent::Keys' : class 'std::array<bool,287>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Event::KeyEvent'
+C:\dev\Scar\Scar\include\Scar\events\KeyEvent.h(11): message : voir la déclaration de 'std::array<bool,287>'
+C:\dev\Scar\Scar\include\Scar\events\KeyEvent.h(12,37): warning C4251: 'Scar::Event::KeyEvent::KeysDown' : class 'std::array<bool,287>' nécessite une interface DLL pour être utilisé(e) par les clients de class 'Scar::Event::KeyEvent'
+C:\dev\Scar\Scar\include\Scar\events\KeyEvent.h(11): message : voir la déclaration de 'std::array<bool,287>'
+  Génération de code en cours...
+  Scar.vcxproj -> C:\dev\Scar\bin\Debug\Scar\Scar.dll
