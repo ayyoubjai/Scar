@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scar", "Scar\Scar.vcxproj", "{0E458C7C-FA7B-8D0D-A368-73108F7E090F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ScarEditor", "ScarEditor\ScarEditor.vcxproj", "{556DDC05-4125-1E53-AA2C-F7AE9603B943}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glad", "vendor\glad\glad.vcxproj", "{DD62977C-C999-980D-7286-7E105E9C140F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E458C7C-FA7B-8D0D-A368-73108F7E090F}.Debug|x64.ActiveCfg = Debug|x64
+		{0E458C7C-FA7B-8D0D-A368-73108F7E090F}.Debug|x64.Build.0 = Debug|x64
+		{0E458C7C-FA7B-8D0D-A368-73108F7E090F}.Release|x64.ActiveCfg = Release|x64
+		{0E458C7C-FA7B-8D0D-A368-73108F7E090F}.Release|x64.Build.0 = Release|x64
+		{556DDC05-4125-1E53-AA2C-F7AE9603B943}.Debug|x64.ActiveCfg = Debug|x64
+		{556DDC05-4125-1E53-AA2C-F7AE9603B943}.Debug|x64.Build.0 = Debug|x64
+		{556DDC05-4125-1E53-AA2C-F7AE9603B943}.Release|x64.ActiveCfg = Release|x64
+		{556DDC05-4125-1E53-AA2C-F7AE9603B943}.Release|x64.Build.0 = Release|x64
+		{DD62977C-C999-980D-7286-7E105E9C140F}.Debug|x64.ActiveCfg = Debug|x64
+		{DD62977C-C999-980D-7286-7E105E9C140F}.Debug|x64.Build.0 = Debug|x64
+		{DD62977C-C999-980D-7286-7E105E9C140F}.Release|x64.ActiveCfg = Release|x64
+		{DD62977C-C999-980D-7286-7E105E9C140F}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
