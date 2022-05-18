@@ -131,6 +131,10 @@ project "ScarEditor"
 
 	includedirs
 	{
+<<<<<<< HEAD
+		"Scar/include",
+=======
+>>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 		"Scar/include/Scar",
 		"%{externals.spdlog}/include",
 		"%{externals.glm}/include"

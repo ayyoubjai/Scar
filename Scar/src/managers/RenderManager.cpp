@@ -2,6 +2,10 @@
 #include "glad/glad.h"
 #include "core/Log.h"
 #include "graphics/Helpers.h"
+<<<<<<< HEAD
+#include "core/Engine.h"
+=======
+>>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 namespace Scar::Managers {
 	void RenderManager::Initialize()
 	{
@@ -53,4 +57,42 @@ namespace Scar::Managers {
 			GlCall(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
 		}
 	}
+<<<<<<< HEAD
+	void RenderManager::PushFrameBuffer(graphics::FrameBuffer* framebuffer)
+	{
+		m_framebuffers.push(framebuffer);
+		framebuffer->Bind();
+		int w, h;
+		framebuffer->GetFrameBufferSize(w, h);
+		SetViewport(0,0,w,h);
+		float r, g, b, a;
+		framebuffer->GetClearColor(r, g, b, a);
+		SetClearColor(r, g, b, a);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	}
+	void RenderManager::PopFrameBuffer()
+	{
+		SCAR_ASSERT(m_framebuffers.size() > 0, "Trying to pop ,while stack is empty");
+		m_framebuffers.pop();
+		if (m_framebuffers.size() > 0) {
+			auto nextfb = m_framebuffers.top();
+			nextfb->Bind();
+			//handle viewport
+			int w, h;
+			nextfb->GetFrameBufferSize(w, h);
+			SetViewport(0, 0, w, h);
+		}
+		else {
+			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+			int w, h;
+			ENGINE()->GetWindow()->GetWindowSize(w, h);
+			SetViewport(0, 0, w, h);
+		}
+	}
+
+	void RenderManager::SetViewport(int x, int y, unsigned int width, unsigned int height) {
+		glViewport(x,y,width,height);
+	}
+=======
+>>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 }
