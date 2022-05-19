@@ -3,12 +3,8 @@
 #include "application/Application.h"
 #include "core/Log.h"
 #include <iostream>
+
 extern Scar::Application* CreateApplication();
-#if defined SC_BUILD_DLL
-#define SCAR_API __declspec(dllexport)
-#else
-#define SCAR_API __declspec(dllimport)
-#endif
 
 int main(int argc, char** argv) {
 	

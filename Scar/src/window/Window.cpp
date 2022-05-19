@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-#include<iostream>
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 #include "window/Window.h"
 #include "core/Engine.h"
 #include "core/Log.h"
@@ -12,7 +8,6 @@
 #include "vendor/imgui/imgui.h"
 namespace Scar 
 {
-<<<<<<< HEAD
 	WindowProperties::WindowProperties() {
 		title = "Scar app";
 		x = SDL_WINDOWPOS_CENTERED;
@@ -25,8 +20,6 @@ namespace Scar
 		ccb = 1;
 		cca = 1;
 	}
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 	Window::Window()
 		:m_window(nullptr) {
 
@@ -42,18 +35,13 @@ namespace Scar
 		while (SDL_PollEvent(&e)) {
 			switch (e.type) {
 				case SDL_QUIT: {
-<<<<<<< HEAD
 					ENGINE()->Quit();
-=======
-					Engine::Get()->Quit();
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 					break;
 				}
 				
 			}
 			m_imguiwindow.HandleSDLEvent(e);
 		}
-<<<<<<< HEAD
 		if(!m_imguiwindow.WantCaptureKeyboard())
 			Event::KeyEvent::Update();
 		if(!m_imguiwindow.WantCaptureMouse())
@@ -63,15 +51,6 @@ namespace Scar
 		m_window = SDL_CreateWindow(wps.title.c_str(), wps.x, wps.y, wps.w, wps.h, wps.flags);
 		if (!m_window) {
 			SCAR_ERROR("error creating window" , SDL_GetError() );
-=======
-		Event::KeyEvent::Update();
-		Event::MouseEvent::Update();
-	}
-	bool Window::Create() {
-		m_window = SDL_CreateWindow("Scar app", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600,SDL_WINDOW_OPENGL|SDL_WINDOW_RESIZABLE);
-		if (!m_window) {
-			std::cout << "error creating window" << SDL_GetError() << std::endl;
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 			return false;
 		}
 		//telleing sdl which opengl profile your are using and the version(minor and major) explecitly
@@ -90,15 +69,11 @@ namespace Scar
 		}
 
 		gladLoadGLLoader(SDL_GL_GetProcAddress);
-<<<<<<< HEAD
 		m_framebuffer = new graphics::FrameBuffer(wps.w, wps.h);
 		m_framebuffer->SetClearColor(wps.ccr, wps.ccg,wps.ccb, wps.cca);
 
 
 		m_imguiwindow.Create(wps.iwps);
-=======
-		m_imguiwindow.Create();
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 		return true;
 	}
 
@@ -110,7 +85,6 @@ namespace Scar
 	void Window::BeginRender()
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-<<<<<<< HEAD
 		//ENGINE()->GetRenderManager()->Clear();
 		ENGINE()->GetRenderManager()->Submit(new graphics::PushFrameBuffer(m_framebuffer));
 	}
@@ -126,17 +100,6 @@ namespace Scar
 		SDL_GL_SwapWindow(m_window);
 	}
 	void Window::GetWindowSize(int& width, int& height) {
-=======
-	}
-	void Window::EndRender()
-	{
-		m_imguiwindow.BeginRender();
-		ImGui::ShowDemoWindow();
-		m_imguiwindow.EndRender();
-		SDL_GL_SwapWindow(m_window);
-	}
-	void Window::GetSize(int& width, int& height) {
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 		SDL_GetWindowSize(m_window, &width, &height);
 	}
 };

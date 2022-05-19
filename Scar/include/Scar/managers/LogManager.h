@@ -1,6 +1,6 @@
 #pragma once
 #include <memory>
-#include "core.h"
+#include "core/core.h"
 #include "spdlog/spdlog.h"
 namespace Scar::Managers {
 

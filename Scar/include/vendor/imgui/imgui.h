@@ -62,11 +62,8 @@ Index of this file:
 #include <stddef.h>                 // ptrdiff_t, NULL
 #include <string.h>                 // memset, memmove, memcpy, strlen, strchr, strcpy, strcmp
 
-<<<<<<< HEAD
 // *************** My core.h *********************ppp
 #include "core/core.h"
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 // Version
 // (Integer encoded as XYYZZ for use in #if preprocessor conditionals. Work in progress versions typically starts at XYY99 then bounce up to XYY00, XYY01 etc. when release tagging happens)
 #define IMGUI_VERSION               "1.88 WIP"
@@ -80,11 +77,7 @@ Index of this file:
 // IMGUI_API is used for core imgui functions, IMGUI_IMPL_API is used for the default backends files (imgui_impl_xxx.h)
 // Using dear imgui via a shared library is not recommended, because we don't guarantee backward nor forward ABI compatibility (also function call overhead, as dear imgui is a call-heavy API)
 #ifndef IMGUI_API
-<<<<<<< HEAD
 #define IMGUI_API SCAR_API
-=======
-#define IMGUI_API
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 #endif
 #ifndef IMGUI_IMPL_API
 #define IMGUI_IMPL_API              IMGUI_API

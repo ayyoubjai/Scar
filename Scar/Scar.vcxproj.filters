@@ -37,6 +37,9 @@
     <Filter Include="include\vendor\imgui\debuggers">
       <UniqueIdentifier>{172573C1-034B-3D28-EC90-C2F3D85562F4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\vendor\stb">
+      <UniqueIdentifier>{1E83A50E-0A67-6664-73C7-60B75FCA50E6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src">
       <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
     </Filter>
@@ -81,6 +84,9 @@
     <ClInclude Include="include\Scar\events\MouseEvent.h">
       <Filter>include\Scar\events</Filter>
     </ClInclude>
+    <ClInclude Include="include\Scar\graphics\FrameBuffer.h">
+      <Filter>include\Scar\graphics</Filter>
+    </ClInclude>
     <ClInclude Include="include\Scar\graphics\Helpers.h">
       <Filter>include\Scar\graphics</Filter>
     </ClInclude>
@@ -91,6 +97,9 @@
       <Filter>include\Scar\graphics</Filter>
     </ClInclude>
     <ClInclude Include="include\Scar\graphics\Shader.h">
+      <Filter>include\Scar\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scar\graphics\Texture.h">
       <Filter>include\Scar\graphics</Filter>
     </ClInclude>
     <ClInclude Include="include\Scar\imguiWindow\imguiWindow.h">
@@ -135,8 +144,9 @@
     <ClInclude Include="include\vendor\imgui\imstb_truetype.h">
       <Filter>include\vendor\imgui</Filter>
     </ClInclude>
-    <ClInclude Include="include\Scar\graphics\Texture.h" />
-    <ClInclude Include="include\Scar\graphics\FrameBuffer.h" />
+    <ClInclude Include="include\vendor\stb\stb_image.h">
+      <Filter>include\vendor\stb</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\vendor\imgui\imgui.cpp">
@@ -172,6 +182,9 @@
     <ClCompile Include="src\events\MouseEvent.cpp">
       <Filter>src\events</Filter>
     </ClCompile>
+    <ClCompile Include="src\graphics\FrameBuffer.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
     <ClCompile Include="src\graphics\Mesh.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
@@ -179,6 +192,9 @@
       <Filter>src\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\graphics\Shader.cpp">
+      <Filter>src\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\graphics\Texture.cpp">
       <Filter>src\graphics</Filter>
     </ClCompile>
     <ClCompile Include="src\imguiWindow\imguiWindow.cpp">
@@ -193,8 +209,6 @@
     <ClCompile Include="src\window\Window.cpp">
       <Filter>src\window</Filter>
     </ClCompile>
-    <ClCompile Include="src\graphics\Texture.cpp" />
-    <ClCompile Include="src\graphics\FrameBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="include\vendor\imgui\debuggers\imgui.natvis">

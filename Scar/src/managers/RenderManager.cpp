@@ -2,10 +2,7 @@
 #include "glad/glad.h"
 #include "core/Log.h"
 #include "graphics/Helpers.h"
-<<<<<<< HEAD
 #include "core/Engine.h"
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 namespace Scar::Managers {
 	void RenderManager::Initialize()
 	{
@@ -57,7 +54,6 @@ namespace Scar::Managers {
 			GlCall(glPolygonMode(GL_FRONT_AND_BACK, GL_FILL));
 		}
 	}
-<<<<<<< HEAD
 	void RenderManager::PushFrameBuffer(graphics::FrameBuffer* framebuffer)
 	{
 		m_framebuffers.push(framebuffer);
@@ -93,6 +89,4 @@ namespace Scar::Managers {
 	void RenderManager::SetViewport(int x, int y, unsigned int width, unsigned int height) {
 		glViewport(x,y,width,height);
 	}
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 }

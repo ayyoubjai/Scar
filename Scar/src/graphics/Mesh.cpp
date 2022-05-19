@@ -16,22 +16,16 @@ namespace Scar::graphics {
 		glBufferData(GL_ARRAY_BUFFER, VertexCount * VertexDim * sizeof(float) , VertexBuffer, GL_STATIC_DRAW);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, ElementCount * sizeof(unsigned int), ElementBuffer, GL_STATIC_DRAW);
 		//VBO layout
-<<<<<<< HEAD
 		//TO DO:provide functionsto automate the process
 
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE,VertexDim * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
 
 		glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, VertexDim * sizeof(float), (void*)(3 * sizeof(float)));
 		glEnableVertexAttribArray(1);
-<<<<<<< HEAD
 
 		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, VertexDim * sizeof(float), (void*)(6 * sizeof(float)));
 		glEnableVertexAttribArray(2);
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 		//unbind the VBO
 		glBindBuffer(GL_VERTEX_ARRAY, 0);
 		//unbind the VAO

@@ -1,6 +1,5 @@
 #include "imguiWindow/imguiWindow.h"
 #include "vendor/imgui/imgui.h"
-<<<<<<< HEAD
 #include "vendor/imgui/imgui_impl_sdl.h"
 #include "vendor/imgui/imgui_impl_opengl3.h"
 #include "core/Engine.h"
@@ -24,17 +23,6 @@ namespace Scar {
 			io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 		}
 
-=======
-
-#include "vendor/imgui/imgui_impl_sdl.h"
-#include "vendor/imgui/imgui_impl_opengl3.h"
-#include "core/Engine.h"
-
-namespace Scar {
-	void ImguiWindow::Create() {
-		IMGUI_CHECKVERSION();
-		ImGui::CreateContext();
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 		ImGui_ImplSDL2_InitForOpenGL(Engine::Get()->GetWindow()->GetSDLWindow(), Engine::Get()->GetWindow()->GetSDLGLContext());
 		ImGui_ImplOpenGL3_Init("#version 330");
 
@@ -59,7 +47,6 @@ namespace Scar {
 	void ImguiWindow::EndRender() {
 		ImGui::Render();
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-<<<<<<< HEAD
 
 		ImGuiIO& io = ImGui::GetIO();
 		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
@@ -76,7 +63,5 @@ namespace Scar {
 
 	bool ImguiWindow::WantCaptureKeyboard() {
 		return ImGui::GetIO().WantCaptureKeyboard;
-=======
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 	}
 }

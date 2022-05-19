@@ -39,12 +39,8 @@ namespace Scar {
 				SDL_version version;
 				SDL_VERSION(&version);
 				SCAR_INFO("SDL version : {}.{}.{}", (int)version.major, (int)version.minor, (int)version.patch);
-<<<<<<< HEAD
 				auto wps = app->CreateWindowProperties();
 				if (!m_window.Create(wps)) {
-=======
-				if (!m_window.Create()) {
->>>>>>> 3c93d98d08391f8b6763dd81ead632ef6e0fa2a4
 					ret = false;
 				}
 				else {
