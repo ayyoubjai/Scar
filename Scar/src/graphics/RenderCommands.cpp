@@ -33,7 +33,7 @@ namespace Scar::graphics {
 		m_texture = texture;
 	}
 	void RenderTexture::Execute()  {
-		if (m_mesh && m_shader) {
+		if (m_mesh && m_shader && m_texture ) {
 			m_shader->Bind();
 			m_texture->Bind();
 			m_mesh->Bind();
