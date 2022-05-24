@@ -9,10 +9,16 @@ namespace Scar::graphics {
 		void checkCompileErrors(unsigned int shader, std::string type);
 	public:
 		Shader(const char* vs, const char* fs, const char* gs=nullptr);
+		Shader()
+			:ID(0)
+		{
+
+		}
 		~Shader();
 		void Bind() ;
 		void UnBind() ;
-		//usniforms
+		inline unsigned int GetID() { return ID; }
+		//uniforms
 		void SetBool(const std::string& name, bool value) const;
 		void SetInt(const std::string& name, int value) const;
 		void SetFloat(const std::string& name, float value) const;

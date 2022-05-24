@@ -74,7 +74,9 @@
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST ..\bin\Debug\$(ProjectName)\Scar.dll\ (xcopy /Q /E /Y /I ..\bin\Debug\$(ProjectName)\Scar.dll ..\bin\Debug\ScarEditor &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug\$(ProjectName)\Scar.dll ..\bin\Debug\ScarEditor &gt; nul)
-IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Debug\ScarEditor &gt; nul) ELSE (xcopy /Q /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Debug\ScarEditor &gt; nul)</Command>
+IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Debug\ScarEditor &gt; nul) ELSE (xcopy /Q /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Debug\ScarEditor &gt; nul)
+IF EXIST ..\bin\Debug\$(ProjectName)\Scar.dll\ (xcopy /Q /E /Y /I ..\bin\Debug\$(ProjectName)\Scar.dll ..\bin\Debug\Pong &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Debug\$(ProjectName)\Scar.dll ..\bin\Debug\Pong &gt; nul)
+IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Debug\Pong &gt; nul) ELSE (xcopy /Q /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Debug\Pong &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -101,7 +103,9 @@ IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2
     </Link>
     <PostBuildEvent>
       <Command>IF EXIST ..\bin\Release\$(ProjectName)\Scar.dll\ (xcopy /Q /E /Y /I ..\bin\Release\$(ProjectName)\Scar.dll ..\bin\Release\ScarEditor &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release\$(ProjectName)\Scar.dll ..\bin\Release\ScarEditor &gt; nul)
-IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Release\ScarEditor &gt; nul) ELSE (xcopy /Q /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Release\ScarEditor &gt; nul)</Command>
+IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Release\ScarEditor &gt; nul) ELSE (xcopy /Q /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Release\ScarEditor &gt; nul)
+IF EXIST ..\bin\Release\$(ProjectName)\Scar.dll\ (xcopy /Q /E /Y /I ..\bin\Release\$(ProjectName)\Scar.dll ..\bin\Release\Pong &gt; nul) ELSE (xcopy /Q /Y /I ..\bin\Release\$(ProjectName)\Scar.dll ..\bin\Release\Pong &gt; nul)
+IF EXIST ..\vendor\SDL2\lib\SDL2.dll\ (xcopy /Q /E /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Release\Pong &gt; nul) ELSE (xcopy /Q /Y /I ..\vendor\SDL2\lib\SDL2.dll ..\bin\Release\Pong &gt; nul)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

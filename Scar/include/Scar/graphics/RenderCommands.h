@@ -11,7 +11,6 @@ namespace Scar::graphics {
 	class Shader;
 	class Mesh;
 	class FrameBuffer
-
 	*/
 	class RenderCommands {
 	public:
@@ -26,7 +25,6 @@ namespace Scar::graphics {
 		RenderMesh(Mesh* mesh, Shader* shader);
 		virtual void Execute();
 	};
-
 
 	class SCAR_API RenderTexture :public RenderMesh {
 		Shader* m_shader;

@@ -69,10 +69,14 @@ namespace Scar
 		}
 
 		gladLoadGLLoader(SDL_GL_GetProcAddress);
+		
+		//ENGINE()->GetRenderManager()->SetClearColor(1,0,0,1);//108.0f / 255.0f, 122.0f / 255.0f, 173.0f / 255.0,1.0f);
+		/*
+		0.43,0.47,0.67,1.0
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		*/
 		m_framebuffer = new graphics::FrameBuffer(wps.w, wps.h);
 		m_framebuffer->SetClearColor(wps.ccr, wps.ccg,wps.ccb, wps.cca);
-
-
 		m_imguiwindow.Create(wps.iwps);
 		return true;
 	}

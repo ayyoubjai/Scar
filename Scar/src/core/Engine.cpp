@@ -18,10 +18,10 @@ namespace Scar {
 	}
 
 	Engine* Engine::Get() {
-		static std::mutex m_mutex;
-		static Engine* m_instance = nullptr;
-		std::lock_guard<std::mutex> lock(m_mutex);
-		return (m_instance == nullptr) ? m_instance=new Engine() : m_instance;
+		static std::mutex s_mutex;
+		static Engine* s_instance = nullptr;
+		std::lock_guard<std::mutex> lock(s_mutex);
+		return (s_instance == nullptr) ? s_instance=new Engine() : s_instance;
 	}
 
 	bool Engine::Initialize(Application* app) {

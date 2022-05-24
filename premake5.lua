@@ -76,7 +76,9 @@ project "Scar"
 		postbuildcommands 
 		{
 			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/Scar.dll ../bin/" .. outputdir .. "/ScarEditor" ),
-			("{COPY} ../%{externals.sdl2}/lib/SDL2.dll ../bin/" .. outputdir .. "/ScarEditor")
+			("{COPY} ../%{externals.sdl2}/lib/SDL2.dll ../bin/" .. outputdir .. "/ScarEditor"),
+			("{COPY} ../bin/" .. outputdir .. "/%{prj.name}/Scar.dll ../bin/" .. outputdir .. "/Pong" ),
+			("{COPY} ../%{externals.sdl2}/lib/SDL2.dll ../bin/" .. outputdir .. "/Pong")
 		}
 
 
@@ -133,6 +135,67 @@ project "ScarEditor"
 	{
 		"Scar/include",
 		"Scar/include/Scar",
+		"%{externals.spdlog}/include",
+		"%{externals.glm}/include"
+
+
+	}
+
+	links
+	{
+		"Scar"
+	}
+	filter "system:windows"
+		systemversion "latest"
+		defines
+		{
+			"SC_PLATFORM_WINDOWS",
+		}
+
+	filter "system:LINUX"
+		defines
+		{
+			"SC_PLATFORM_LINUX",
+
+		}
+
+	filter "configurations:Debug"
+		defines
+		{
+			"SC_DEBUG"
+		}
+		symbols "On"
+
+	filter "configurations:Release"
+		defines
+		{
+			"SC_RELEASE"
+		}
+		runtime "Release"
+		optimize "On"
+
+
+project "Pong"
+	location "Pong"
+	kind "ConsoleApp"
+	language "C++"
+	cppdialect "C++17"
+	staticruntime "On"
+
+	targetdir("bin/" .. outputdir .. "/%{prj.name}")
+	objdir("bin-obj/" .. outputdir .. "/%{prj.name}")
+
+	files
+	{
+		"%{prj.name}/src/**.h",
+		"%{prj.name}/src/**.cpp"
+	}
+
+	includedirs
+	{
+		"Scar/include",
+		"Scar/include/Scar",
+		"%{prj.name}/src",
 		"%{externals.spdlog}/include",
 		"%{externals.glm}/include"
 

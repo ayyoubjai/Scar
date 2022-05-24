@@ -33,5 +33,5 @@ namespace Scar {
 	SCAR_API void GetInfo();
 }
 
-#define ENGINE() Engine::Get()
+#define ENGINE() Scar::Engine::Get()
 

@@ -12,7 +12,7 @@ namespace Scar::Managers {
 		glDepthFunc(GL_LEQUAL);
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-		SetClearColor(0, 0, 1, 0);
+		//SetClearColor(0, 0, 1, 0);
 	}
 
 	void RenderManager::ShutDown()

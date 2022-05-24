@@ -25,7 +25,6 @@ namespace Scar {
 
 		ImGui_ImplSDL2_InitForOpenGL(Engine::Get()->GetWindow()->GetSDLWindow(), Engine::Get()->GetWindow()->GetSDLGLContext());
 		ImGui_ImplOpenGL3_Init("#version 330");
-
 	}
 
 	void ImguiWindow::ShutDown() {

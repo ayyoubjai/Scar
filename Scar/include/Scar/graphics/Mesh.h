@@ -1,7 +1,6 @@
 #pragma once
 #include "core/core.h"
 
-
 namespace Scar::graphics {
 	class SCAR_API Mesh {
 	private:
@@ -14,6 +13,11 @@ namespace Scar::graphics {
 	public:
 		Mesh(float* VertexBuffer,unsigned int VertexCount ,unsigned int VertexDim, unsigned int* ElementBuffer,unsigned int ElementCount);
 		Mesh(float* VertexBuffer, unsigned int VertexCount, unsigned int VertexDim);
+		Mesh()
+			:VAO(0), VBO(0), EBO(0), m_vertexcount(0),m_elementcount(0),m_elementbuffer(nullptr)
+		{
+		
+		}
 		~Mesh();
 		void Bind();
 		void UnBind();

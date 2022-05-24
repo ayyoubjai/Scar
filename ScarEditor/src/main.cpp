@@ -152,6 +152,6 @@ public:
 	
 };
 
-Scar::Application* CreateApplication() {
+Application* CreateApplication() {
 	return new Editor();
 }
