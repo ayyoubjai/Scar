@@ -5,6 +5,7 @@
 #include "glad/glad.h"
 #include "events/MouseEvent.h"
 #include "events/KeyEvent.h"
+#include "core/Paths.h"
 #include "vendor/imgui/imgui.h"
 #include "graphics/Helpers.h"
 #include "glm/ext/matrix_transform.hpp"
@@ -88,7 +89,7 @@ namespace Scar
 		Event::MouseEvent::SetScreenSize(wps.w, wps.h);
 		//m_windowProperties.aspectRatio = (float)m_windowProperties.h / m_windowProperties.w;
 		
-		m_bg = new graphics::Texture("c:/dev/Scar/PFE/assets/bg.png");
+		m_bg = new graphics::Texture(Paths::ToString(Paths::EditorAssetsDir() / "bg.png"));
 		return true;
 	}
 
@@ -168,7 +169,9 @@ namespace Scar
 		m_va->SetElements({ 0,1,2,0,2,3 });
 		m_va->Upload();
 
-		m_shader = new graphics::Shader("C:/dev/Scar/Scar/src/shaders/ScreenVertexShader.sh", "C:/dev/Scar/Scar/src/shaders/ScreenFragmentShader.sh");
+		const auto vertexShader = Paths::ToString(Paths::EngineShadersDir() / "ScreenVertexShader.sh");
+		const auto fragmentShader = Paths::ToString(Paths::EngineShadersDir() / "ScreenFragmentShader.sh");
+		m_shader = new graphics::Shader(vertexShader.c_str(), fragmentShader.c_str());
 		
 	}
 

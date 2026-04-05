@@ -1,13 +1,20 @@
 #include "core/Engine.h"
-#include "core/EntryPoint.h"
 #include "graphics/Entity.h"
 #include "managers/EntityManager.h"
 #include "application/Application.h"
 #include "window/Window.h"
 #include "events/KeyEvent.h"
+#include "core/Paths.h"
+#include <filesystem>
 #include <fstream>
 #include <string>
 using namespace Scar;
+
+namespace {
+	std::filesystem::path ResolveDesignInputPath(const std::string& path) {
+		return Scar::Paths::ResolveDesignPath(path.empty() ? "Design.scar" : path);
+	}
+}
 
 class pfe :public Scar::Application {
 	graphics::VertexArray* m_va,*m_vaSquare,*m_vaTriangle,*m_vaIcon,*m_vaDimond,*m_vaLine;
@@ -19,31 +26,34 @@ class pfe :public Scar::Application {
 
 public:
 	void Initialize() override {
-		
+		const auto loadAsset = [](const char* filename) {
+			return new graphics::Texture(Scar::Paths::ToString(Scar::Paths::EditorAssetsDir() / filename));
+		};
+
 		//Upload the icons
-		m_bed = new graphics::Texture("c:/dev/Scar/PFE/assets/bed.png");
-		m_roundTable = new graphics::Texture("c:/dev/Scar/PFE/assets/round-table.png");
-		m_diningTable = new graphics::Texture("c:/dev/Scar/PFE/assets/dining-table.png");
-		m_chair = new graphics::Texture("c:/dev/Scar/PFE/assets/chair.png");
-		m_car = new graphics::Texture("C:/dev/Scar/PFE/assets/car.png");
-		m_stove = new graphics::Texture("C:/dev/Scar/PFE/assets/stove.png");
-		m_sofa = new graphics::Texture("C:/dev/Scar/PFE/assets/sofa.png");
-		m_sink = new graphics::Texture("C:/dev/Scar/PFE/assets/sink.png");
-		m_toilet = new graphics::Texture("C:/dev/Scar/PFE/assets/toilet.png");
-		m_desk = new graphics::Texture("C:/dev/Scar/PFE/assets/desk.png");
-		m_close = new graphics::Texture("C:/dev/Scar/PFE/assets/close-window.png");
-		m_greenSquare = new graphics::Texture("C:/dev/Scar/PFE/assets/green-square64.png");
-		m_whiteSquare = new graphics::Texture("C:/dev/Scar/PFE/assets/white-square64.png");
-		m_triangle = new graphics::Texture("C:/dev/Scar/PFE/assets/triangle40.png");
-		m_squareFilled = new graphics::Texture("C:/dev/Scar/PFE/assets/square-full.png");
-		m_disk = new graphics::Texture("C:/dev/Scar/PFE/assets/disk.png");
-		m_greenDoor = new graphics::Texture("C:/dev/Scar/PFE/assets/green-door.png");
-		m_door = new graphics::Texture("C:/dev/Scar/PFE/assets/door.png");
-		m_dimond = new graphics::Texture("C:/dev/Scar/PFE/assets/dimond.png");
-		m_line = new graphics::Texture("C:/dev/Scar/PFE/assets/vertical-line.png");
-		m_closeBlack = new graphics::Texture("C:/dev/Scar/PFE/assets/close.png");
-		m_download = new graphics::Texture("C:/dev/Scar/PFE/assets/save.png");
-		m_upload = new graphics::Texture("C:/dev/Scar/PFE/assets/upload.png");
+		m_bed = loadAsset("bed.png");
+		m_roundTable = loadAsset("round-table.png");
+		m_diningTable = loadAsset("dining-table.png");
+		m_chair = loadAsset("chair.png");
+		m_car = loadAsset("car.png");
+		m_stove = loadAsset("stove.png");
+		m_sofa = loadAsset("sofa.png");
+		m_sink = loadAsset("sink.png");
+		m_toilet = loadAsset("toilet.png");
+		m_desk = loadAsset("desk.png");
+		m_close = loadAsset("close-window.png");
+		m_greenSquare = loadAsset("green-square64.png");
+		m_whiteSquare = loadAsset("white-square64.png");
+		m_triangle = loadAsset("triangle40.png");
+		m_squareFilled = loadAsset("square-full.png");
+		m_disk = loadAsset("disk.png");
+		m_greenDoor = loadAsset("green-door.png");
+		m_door = loadAsset("door.png");
+		m_dimond = loadAsset("dimond.png");
+		m_line = loadAsset("vertical-line.png");
+		m_closeBlack = loadAsset("close.png");
+		m_download = loadAsset("save.png");
+		m_upload = loadAsset("upload.png");
 		//Init vaos
 		m_va = new graphics::VertexArray();
 		m_vaSquare = new graphics::VertexArray();
@@ -615,10 +625,14 @@ public:
 	}
 
 	void SaveDesign(std::string path = "Design.scar") {
-		//creating the design file std::string("Scar/PFE/designs/")+std::string(
-		std::string str = std::string("designs/") + path;
-		std::ofstream File;
-		File.open(str.c_str());
+		const auto designPath = ResolveDesignInputPath(path);
+		std::filesystem::create_directories(designPath.parent_path());
+		std::ofstream File(designPath);
+		if (!File.is_open()) {
+			SCAR_ERROR("failed to open design file {}", Scar::Paths::ToString(designPath));
+			return;
+		}
+
 		File << std::to_string(EntityMgr()->GetEntitiesCount()) + "\n";
 		auto& entities = EntityMgr()->GetEntities();
 		for (std::vector<graphics::Entity*>::iterator iter = entities.begin(); iter != entities.end(); iter++) {
@@ -639,11 +653,14 @@ public:
 		File.close();
 	}
 
-	void UploadDesign(std::string path = "Design.png") {
-		std::ifstream File;
-		path = std::string("designs/") + path;
-			File.open(path);
-			if (File.is_open()) {
+	void UploadDesign(std::string path = "Design.scar") {
+		const auto designPath = ResolveDesignInputPath(path);
+		std::ifstream File(designPath);
+		if (!File.is_open()) {
+			SCAR_ERROR("failed to open design file {}", Scar::Paths::ToString(designPath));
+			return;
+		}
+
 				std::string str;
 				getline(File, str);
 				unsigned int count = std::stoi(str);
@@ -774,8 +791,7 @@ public:
 						i++;
 					}
 				}
-			}
-			File.close();
+		File.close();
 	}
 
 	void CreateLine() {

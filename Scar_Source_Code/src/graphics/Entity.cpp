@@ -4,9 +4,16 @@
 #include "events/MouseEvent.h"
 #include "core/Engine.h"
 #include "core/Log.h"
+#include "core/Paths.h"
 #include "graphics/RenderCommands.h"
 #include <cmath>
 namespace Scar::graphics {
+	namespace {
+		std::string EditorShaderPath(const char* filename) {
+			return Scar::Paths::ToString(Scar::Paths::EditorShadersDir() / filename);
+		}
+	}
+
 	Entity::Entity()
 		:ID{ 0 }, m_rot{0.0f}, m_color{ 1.0f,0.0f,0.0f,1.0f }, m_pos{ 0.0f,0.0f }, m_scale{ 0.0f,0.0f }, m_size{ 0.0f,0.0f }, m_transform{ glm::mat4{1.0f} }, m_vertexArray{ nullptr }, m_texture{ nullptr }
 	{
@@ -83,7 +90,7 @@ namespace Scar::graphics {
 		
 	}
 	Square::Square(const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform)
-		: Entity(pos,size,scale,transform), m_shader("C:/dev/Scar/PFE/src/shaders/SquareVertexShader.sh", "C:/dev/Scar/PFE/src/shaders/SquareFragmentShader.sh")
+		: Entity(pos,size,scale,transform), m_shader(EditorShaderPath("SquareVertexShader.sh").c_str(), EditorShaderPath("SquareFragmentShader.sh").c_str())
 	{
 		m_type = SQUARE;
 	}
@@ -131,7 +138,7 @@ namespace Scar::graphics {
 		return "Disk";
 	}
 	Disk::Disk(const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform)
-		: Entity(pos, size, scale, transform), m_shader("C:/dev/Scar/PFE/src/shaders/VertexShader.sh", "C:/dev/Scar/PFE/src/shaders/BallFragmentShader.sh")
+		: Entity(pos, size, scale, transform), m_shader(EditorShaderPath("VertexShader.sh").c_str(), EditorShaderPath("BallFragmentShader.sh").c_str())
 	{
 		m_type = DISK;
 	}
@@ -187,7 +194,7 @@ namespace Scar::graphics {
 		return "Square Filled";
 	}
 	SquareFilled::SquareFilled(const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform)
-		: Entity(pos, size, scale, transform), m_shader("C:/dev/Scar/PFE/src/shaders/VertexShader.sh", "C:/dev/Scar/PFE/src/shaders/FragmentShader.sh")
+		: Entity(pos, size, scale, transform), m_shader(EditorShaderPath("VertexShader.sh").c_str(), EditorShaderPath("FragmentShader.sh").c_str())
 	{
 		m_type = SQUARE_FILLED;
 	}
@@ -241,7 +248,7 @@ namespace Scar::graphics {
 
 	//Begin Triangle class
 	Triangle::Triangle(const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform) 
-		: Entity(pos, size, scale, transform), m_shader("C:/dev/Scar/PFE/src/shaders/VertexShader.sh", "C:/dev/Scar/PFE/src/shaders/FragmentShader.sh")
+		: Entity(pos, size, scale, transform), m_shader(EditorShaderPath("VertexShader.sh").c_str(), EditorShaderPath("FragmentShader.sh").c_str())
 	{
 		m_type = TRIANGLE;
 	}
@@ -299,7 +306,7 @@ namespace Scar::graphics {
 
 	//Begin class Door
 	Icon::Icon(EntityType type,const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform)
-		: Entity(pos, size, scale, transform), m_shader("C:/dev/Scar/PFE/src/shaders/SquareVertexShader.sh", "C:/dev/Scar/PFE/src/shaders/SquareFragmentShader.sh")
+		: Entity(pos, size, scale, transform), m_shader(EditorShaderPath("SquareVertexShader.sh").c_str(), EditorShaderPath("SquareFragmentShader.sh").c_str())
 	{
 		m_type = type;
 	}
@@ -392,7 +399,7 @@ namespace Scar::graphics {
 	//Begin class Dimond
 
 	Dimond::Dimond(const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform)
-		:Entity(pos, size, scale, transform), m_shader("C:/dev/Scar/PFE/src/shaders/VertexShader.sh", "C:/dev/Scar/PFE/src/shaders/FragmentShader.sh")
+		:Entity(pos, size, scale, transform), m_shader(EditorShaderPath("VertexShader.sh").c_str(), EditorShaderPath("FragmentShader.sh").c_str())
 	{
 		m_type = DIMOND; 
 	}
@@ -459,7 +466,7 @@ namespace Scar::graphics {
 
 	//Begin class Line
 	Line::Line(const glm::vec2& pos, const glm::vec2& size, const glm::vec2& scale, const glm::mat4& transform)
-		:Entity(pos,size,scale,transform),m_shader("C:/dev/Scar/PFE/src/shaders/VertexShader.sh", "C:/dev/Scar/PFE/src/shaders/FragmentShader.sh")
+		:Entity(pos,size,scale,transform),m_shader(EditorShaderPath("VertexShader.sh").c_str(), EditorShaderPath("FragmentShader.sh").c_str())
 	{
 		m_type = LINE;
 	}	

@@ -7,7 +7,7 @@ namespace Scar::graphics {
 
 	class SCAR_API Texture {
 		unsigned int ID;
-		const char* m_path;
+		std::string m_path;
 		int m_width, m_height;
 		int m_nbrchannels;//this could be 3 for RGB or 4 for RGBA
 		bool m_binded;
@@ -16,6 +16,7 @@ namespace Scar::graphics {
 	public:
 		Texture();
 		Texture(const char* path);
+		Texture(const std::string& path);
 		~Texture();
 		void ActiveTextUnit(GLenum textunit);
 		void Bind();

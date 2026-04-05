@@ -1,6 +1,6 @@
 #pragma once
 #include "core/core.h"
-#include "imguiWindow/ImguiWindow.h"
+#include "imguiWindow/imguiWindow.h"
 #include "graphics/FrameBuffer.h"
 #include "graphics/Vertex.h"
 #include "graphics/Texture.h"
@@ -45,7 +45,7 @@ namespace Scar
 		void BeginRender();
 		void EndRender();
 		void GetWindowSize(int& width, int& height);
-		inline const glm::vec2& GetWindowSize() const { return { m_windowProperties.w,m_windowProperties.h }; }
+		inline glm::vec2 GetWindowSize() const { return { m_windowProperties.w, m_windowProperties.h }; }
 		void RenderToScreen();
 		void InitializeScreenRender();
 		void HandleResize(int width,int height);

@@ -6,7 +6,7 @@
 #include "graphics/Helpers.h"
 namespace Scar::graphics {
 	Texture::Texture()
-		:m_path(nullptr), m_binded(false), m_textunit(GL_TEXTURE0) 
+		:m_path(), m_binded(false), m_textunit(GL_TEXTURE0) 
 	{
 		glGenTextures(1, &ID);
 		glBindTexture(GL_TEXTURE_2D, ID);
@@ -18,7 +18,12 @@ namespace Scar::graphics {
 		*/
 	}
 
-	Texture::Texture(const char* path )
+	Texture::Texture(const char* path)
+		: Texture(path ? std::string(path) : std::string())
+	{
+	}
+
+	Texture::Texture(const std::string& path)
 		:m_path(path),m_binded(false),m_textunit(GL_TEXTURE0) 
 	{
 		glGenTextures(1, &ID);
@@ -31,7 +36,7 @@ namespace Scar::graphics {
 		
 		stbi_set_flip_vertically_on_load(0);
 
-		unsigned char* data = stbi_load(m_path, &m_width, &m_height, &m_nbrchannels, 0);
+		unsigned char* data = stbi_load(m_path.c_str(), &m_width, &m_height, &m_nbrchannels, 0);
 		GLenum TextureFormat = 0;
 		if (m_nbrchannels == 3) {
 			TextureFormat = GL_RGB;
